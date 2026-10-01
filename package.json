@@ -3,7 +3,7 @@
   "main": "./lib/index",
   "version": "0.36.10",
   "description": "GitHub integration",
-  "repository": "https://github.com/atom/github",
+  "repository": "https://github.com/coltonsr77/github-fork",
   "license": "MIT",
   "scripts": {
     "test": "node script/test",
