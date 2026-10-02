@@ -7,7 +7,7 @@ jobs:
     name: Update schema
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@7
     - name: Update schema
       uses: ./actions/schema-up
       env:
