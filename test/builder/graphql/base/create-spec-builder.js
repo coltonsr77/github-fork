@@ -113,12 +113,14 @@ export function createSpecBuilderClass(typeName, fieldDescriptions, interfaces =
       if (description.linked === undefined) {
         /* eslint-disable-next-line no-console */
         console.error(
-          `Linked field ${fieldName} requested without a builder class in ${name}.\n` +
+          'Linked field %s requested without a builder class in %s.\n' +
           'This can happen if you have a circular dependency between builders in different ' +
           'modules. Use defer() to defer loading of one builder to break it.',
+          fieldName,
+          typeName,
           fieldDescriptions,
         );
-        throw new Error(`Linked field ${fieldName} requested without a builder class in ${name}`);
+        throw new Error(`Linked field ${fieldName} requested without a builder class in ${typeName}`);
       }
 
       if (description.plural) {
