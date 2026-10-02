@@ -19,15 +19,15 @@ jobs:
       UNTIL_TIMEOUT: 30000
     steps:
     - uses: actions/checkout@v7
-    - name: install Atom
+    - name: Install Atom
       uses: UziTech/action-setup-atom@v3
       with:
         channel: ${{ matrix.channel }}
 
-    - name: install dependencies
+    - name: Install Dependencies
       run: apm ci
 
-    - name: configure git
+    - name: Configure Git
       shell: bash
       run: |
         git config --global user.name Hubot
@@ -42,7 +42,7 @@ jobs:
       continue-on-error: true # due to https://github.com/atom/github/pull/2459#issuecomment-624725972
       run: atom --test test
 
-    - name: report code coverage
+    - name: Report Code Coverage
       shell: bash
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
@@ -65,28 +65,28 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v7
-    - name: install Atom
+    - name: Install Atom
       uses: UziTech/action-setup-atom@v3
       with:
         channel: nightly
-    - name: install dependencies
+    - name: Install Dependencies
       run: apm ci
     - name: lint
       run: npm run lint
 
   snapshot-tests:
-    name: snapshot tests
+    name: Snapshot Tests
     runs-on: ubuntu-18.04
     env:
       ATOM_GITHUB_BABEL_ENV: coverage
       ATOM_GITHUB_TEST_SUITE: snapshot
     steps:
     - uses: actions/checkout@v7
-    - name: install Atom
+    - name: Install Atom
       uses: UziTech/action-setup-atom@v3
       with:
         channel: nightly
-    - name: install dependencies
+    - name: Install Dependencies
       run: apm ci
-    - name: run snapshot tests
+    - name: Run Snapshot Tests
       run: atom --test test/
