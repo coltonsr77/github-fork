@@ -2086,7 +2086,7 @@ function assertGitConfigSetting(args, command, settingName, valuePattern = '.*$'
   const commandIndex = args.indexOf(command);
   assert.notEqual(commandIndex, -1, `${command} not found in exec arguments ${args.join(' ')}`);
 
-  const settingNamePattern = settingName.replace(/[.\\()[\]{}+*^$]/, '\\$&');
+  const settingNamePattern = settingName.replace(/[.\\()[\]{}+*^$]/g, '\\$&');
 
   const valueRx = new RegExp(`^${settingNamePattern}=${valuePattern}`);
 
